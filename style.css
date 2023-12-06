@@ -1,0 +1,107 @@
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+}
+
+h1 {
+	color: #333;
+	margin-bottom: 20px;
+}
+
+.webcam-container {
+	position: relative;
+	width: 100%;
+	max-width: 720px;
+	margin: auto;
+}
+
+video {
+	width: 100%;
+	height: auto;
+	transform: scaleX(-1); /* flip horizontal by default */
+}
+
+.button-container {
+	margin: 20px 0;
+}
+
+button {
+	margin: 0 10px;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: white;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+button:hover {
+	background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+	.webcam-container {
+		width: 100%;
+	}
+
+}
+/* Additional CSS for flipping */
+video.flip-horizontal {
+   transform: scaleX(1);
+}
+
+video.flip-vertical {
+	transform: scaleY(-1);
+}
+
+/* Fullscreen Styles */
+.fullscreen-enabled .webcam-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1000;
+	background-color: black;
+	max-width: none;
+}
+
+.fullscreen-enabled video {
+	width: 100%;
+	height: 100%;
+}
+
+.fullscreen-enabled .button-container {
+	position: fixed;
+	left: 50%;
+	bottom: 10px;
+	transform: translateX(-50%);
+	z-index: 1001;
+}
+.fullscreen-enabled button {
+	background-color: rgba(76, 175, 80, 0.7); /* semi-transparent buttons */
+	display: inline-block; /* to align buttons in a row */
+	margin: 5px; /* spacing between buttons */
+}
+
+/* Responsive Design for Full Screen */
+@media (max-width: 600px) {
+	.fullscreen-enabled .button-container {
+		width: 100%;
+		left: 0;
+		transform: none;
+	}
+
+	.fullscreen-enabled .button-container button {
+		width: 100%;
+		margin-top: 10px;
+		font-size: 12px;
+
+	}
+}
+
+
