@@ -19,7 +19,13 @@ document.addEventListener( 'DOMContentLoaded', function () {
 		}
 
 		const constraints = {
-			video: {deviceId: deviceId ? {exact: deviceId} : undefined}
+			video: {
+				// If deviceId is supported by device, use it.
+				deviceId: deviceId ? {exact: deviceId} : undefined,
+				// Use highest resolution available supporting upto 4k.
+				width: {ideal: 4096},
+				height: {ideal: 2160}
+			},
 		};
 
 		navigator.mediaDevices.getUserMedia( constraints )
